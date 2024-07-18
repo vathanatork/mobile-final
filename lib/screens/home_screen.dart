@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.grey[850],
         child: const Icon(Icons.cast),
-        onPressed: () => print('Cast'),
+        onPressed: () => {},
       ),
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 50.0),
@@ -49,37 +49,27 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: CustomScrollView(
         controller: _scrollController,
-        slivers: [
+         slivers: [
           SliverToBoxAdapter(
             child: ContentHeader(featuredContent: sintelContent),
           ),
-          //SliverPadding(
-          //   padding: const EdgeInsets.only(top: 20.0),
-          //   sliver: SliverToBoxAdapter(
-          //     child: Previews(
-          //       key: PageStorageKey('previews'),
-          //       title: 'Previews',
-          //       contentList: previews,
-          //     ),
-          //   ),
-          //),
           SliverToBoxAdapter(
             child: ContentList(
-              key: PageStorageKey('only_on_netflix'),
+              key: const PageStorageKey('only_on_netflix'),
               title: 'Only on Netflix',
               contentList: previews,
             ),
           ),
           SliverToBoxAdapter(
             child: ContentList(
-              key: PageStorageKey('myList'),
+              key: const PageStorageKey('myList'),
               title: 'My List',
               contentList: myList,
             ),
           ),
           SliverToBoxAdapter(
             child: ContentList(
-              key: PageStorageKey('originals'),
+              key: const PageStorageKey('originals'),
               title: 'Your Next Watch',
               contentList: originals,
               // isOriginals: true,
@@ -89,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.only(bottom: 20.0),
             sliver: SliverToBoxAdapter(
               child: ContentList(
-                key: PageStorageKey('trending'),
+                key: const PageStorageKey('trending'),
                 title: 'Trending',
                 contentList: trending,
               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_netflix_responsive_ui/models/models.dart';
+import 'package:flutter_netflix_responsive_ui/screens/detail_screen.dart';
 
 class ContentList extends StatelessWidget {
   final String title;
@@ -13,7 +14,7 @@ class ContentList extends StatelessWidget {
     required this.contentList,
     this.isOriginals = false,
   }) : super(key: key);
-
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -32,7 +33,7 @@ class ContentList extends StatelessWidget {
               ),
             ),
           ),
-          Container(
+          SizedBox(
             height: isOriginals ? 500.0 : 220.0,
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(
@@ -44,7 +45,12 @@ class ContentList extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 final Content content = contentList[index];
                 return GestureDetector(
-                  onTap: () => print(content.name),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailScreen(content: content),
+                    ),
+                  ),
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 8.0),
                     height: isOriginals ? 400.0 : 200.0,

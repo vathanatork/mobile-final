@@ -11,9 +11,9 @@ class NavScreen extends StatefulWidget {
 
 class _NavScreenState extends State<NavScreen> {
   final List<Widget> _screens = [
-    HomeScreen(key: PageStorageKey('homeScreen')),
-    ItemScreen(key: PageStorageKey('itemScreen')),
-    Scaffold(),
+    const HomeScreen(key: PageStorageKey('homeScreen')),
+    const ItemScreen(key: PageStorageKey('itemScreen')),
+    const Scaffold(),
   ];
 
   final Map<String, IconData> _icons = const {
