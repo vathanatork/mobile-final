@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_netflix_responsive_ui/assets.dart';
 import 'package:flutter_netflix_responsive_ui/models/models.dart';
 
+import '../models/movie.dart';
+
 final Content sintelContent = Content(
   name: 'Sintel',
   imageUrl: Assets.sintel,
@@ -11,7 +13,7 @@ final Content sintelContent = Content(
       'A lonely young woman, Sintel, helps and befriends a dragon,\nwhom she calls Scales. But when he is kidnapped by an adult\ndragon, Sintel decides to embark on a dangerous quest to find\nher lost friend Scales.',
 );
 
-final List<Content> previews =  [
+final List<Content> previews = [
   Content(
     name: 'Avatar The Last Airbender',
     imageUrl: Assets.atla,
@@ -75,7 +77,7 @@ final List<Content> previews =  [
   ),
 ];
 
-final List<Content> myList =  [
+final List<Content> myList = [
   Content(name: 'Violet Evergarden', imageUrl: Assets.violetEvergarden),
   Content(name: 'How to Sell Drugs Online (Fast)', imageUrl: Assets.htsdof),
   Content(name: 'Kakegurui', imageUrl: Assets.kakegurui),
@@ -88,7 +90,7 @@ final List<Content> myList =  [
   Content(name: 'Black Mirror', imageUrl: Assets.blackMirror),
 ];
 
-final List<Content> originals =  [
+final List<Content> originals = [
   Content(name: 'Stranger Things', imageUrl: Assets.strangerThings),
   Content(name: 'The Witcher', imageUrl: Assets.witcher),
   Content(name: 'The Umbrella Academy', imageUrl: Assets.umbrellaAcademy),
@@ -101,7 +103,7 @@ final List<Content> originals =  [
   Content(name: 'The End of the F***ing World', imageUrl: Assets.teotfw),
 ];
 
-final List<Content> trending =  [
+final List<Content> trending = [
   Content(name: 'Explained', imageUrl: Assets.explained),
   Content(name: 'Avatar The Last Airbender', imageUrl: Assets.atla),
   Content(name: 'Tiger King', imageUrl: Assets.tigerKing),
@@ -112,4 +114,20 @@ final List<Content> trending =  [
   Content(name: 'Tiger King', imageUrl: Assets.tigerKing),
   Content(name: 'The Crown', imageUrl: Assets.crown),
   Content(name: 'Dogs', imageUrl: Assets.dogs),
+];
+
+List<Movie> staticMovies = [
+  Movie(
+    title: 'Movie 1',
+    imageUrl: 'https://via.placeholder.com/300x450',
+    releaseDate: '2024-01-01',
+    overview: 'This is the overview of Movie 1.',
+  ),
+  Movie(
+    title: 'Movie 2',
+    imageUrl: 'https://via.placeholder.com/300x450',
+    releaseDate: '2024-02-01',
+    overview: 'This is the overview of Movie 2.',
+  ),
+  // Add more movies as needed
 ];
