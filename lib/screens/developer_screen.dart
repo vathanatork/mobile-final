@@ -7,42 +7,28 @@ class DeveloperScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: const Text('Developers', style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                decoration: BoxDecoration(
-                  // color: Colors.blue[800],
-                  border: Border.all(color: Colors.red, width: 2),
-                ),
-                child: const Text(
-                  'About Our Developers',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.yellow,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            const ProfileCard(
+            ProfileCard(
               name: 'Tork Chanudomvathana',
               description:
-                  'Hi, I am a fullstack web and mobile app\ndeveloper. I am a student at CADT.',
+                  'Hi, I am a fullstack web and mobile app developer. I am a student at CADT.',
               imageUrl: Assets.vathana,
             ),
-            const SizedBox(height: 20),
-            const ProfileCard(
+            SizedBox(height: 20),
+            ProfileCard(
               name: 'Cheang Thornsopanha',
               description:
-                  'Hi, I am a fullstack web and mobile app\ndeveloper. I am a student at CADT.',
+                  'Hi, I am a fullstack web and mobile app developer. I am a student at CADT.',
               imageUrl: Assets.cheangThornsopanha,
             ),
           ],
@@ -57,14 +43,30 @@ class ProfileCard extends StatelessWidget {
   final String description;
   final String imageUrl;
 
-  const ProfileCard(
-      {required this.name, required this.description, required this.imageUrl});
+  const ProfileCard({
+    required this.name,
+    required this.description,
+    required this.imageUrl,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 300,
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+      width: double.infinity,
       padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.grey[900],
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 8,
+          ),
+        ],
+      ),
       child: Column(
         children: [
           CircleAvatar(
@@ -75,17 +77,37 @@ class ProfileCard extends StatelessWidget {
           Text(
             name,
             style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.yellow),
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+            overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 10),
           Text(
             description,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 14, color: Colors.white),
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.white70,
+            ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 10),
+          ElevatedButton(
+            onPressed: () {
+              // Handle button press
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Colors.red,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            child: const Text('Learn More',
+                style: TextStyle(fontSize: 16, color: Colors.white)),
+          ),
         ],
       ),
     );

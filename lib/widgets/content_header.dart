@@ -104,14 +104,15 @@ class __ContentHeaderDesktopState extends State<_ContentHeaderDesktop> {
   @override
   void initState() {
     super.initState();
-    
+
     _videoController = VideoPlayerController.networkUrl(
-      widget.featuredContent.videoUrl ,
+      widget.featuredContent.videoUrl,
     )..initialize().then((_) {
-      setState(() {}); // Ensure the first frame is shown after the video is initialized
-      _videoController.setVolume(0);
-      _videoController.play();
-    });
+        setState(
+            () {}); // Ensure the first frame is shown after the video is initialized
+        _videoController.setVolume(0);
+        _videoController.play();
+      });
   }
 
   @override
@@ -197,8 +198,14 @@ class __ContentHeaderDesktopState extends State<_ContentHeaderDesktop> {
                     const SizedBox(width: 16.0),
                     TextButton.icon(
                       style: ButtonStyle(
-                        padding: WidgetStateProperty.all(const EdgeInsets.fromLTRB(25.0, 10.0, 30.0, 10.0)),
-                        backgroundColor: WidgetStateProperty.all(Colors.white),
+                        padding: MaterialStateProperty.all(
+                          Responsive.isDesktop(context)
+                              ? const EdgeInsets.fromLTRB(
+                                  25.0, 10.0, 30.0, 10.0)
+                              : const EdgeInsets.fromLTRB(15.0, 5.0, 20.0, 5.0),
+                        ),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.white),
                       ),
                       onPressed: () {},
                       icon: const Icon(Icons.info_outline, size: 30.0),
@@ -243,12 +250,12 @@ class _PlayButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton.icon(
       style: ButtonStyle(
-        padding: WidgetStateProperty.all(
+        padding: MaterialStateProperty.all(
           Responsive.isDesktop(context)
               ? const EdgeInsets.fromLTRB(25.0, 10.0, 30.0, 10.0)
               : const EdgeInsets.fromLTRB(15.0, 5.0, 20.0, 5.0),
         ),
-        backgroundColor: WidgetStateProperty.all(Colors.white),
+        backgroundColor: MaterialStateProperty.all(Colors.white),
       ),
       onPressed: () {},
       icon: const Icon(Icons.play_arrow, size: 30.0),

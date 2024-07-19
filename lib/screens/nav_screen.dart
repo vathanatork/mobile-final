@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_netflix_responsive_ui/cubits/cubits.dart';
+import 'package:flutter_netflix_responsive_ui/screens/my_netflix_screen.dart';
 import 'package:flutter_netflix_responsive_ui/screens/screens.dart';
+import 'package:flutter_netflix_responsive_ui/widgets/profile_icon.dart';
 import 'package:flutter_netflix_responsive_ui/widgets/widgets.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 
 import 'new_and_hot_screen.dart';
 
@@ -13,20 +16,22 @@ class NavScreen extends StatefulWidget {
 
 class _NavScreenState extends State<NavScreen> {
   final List<Widget> _screens = [
-    HomeScreen(key: PageStorageKey('homeScreen')),
-    NewAndHotScreen(),
-    DeveloperScreen(),
-    Scaffold(),
+    const HomeScreen(key: PageStorageKey('homeScreen')),
+    const NewAndHotScreen(),
+    const DeveloperScreen(),
+    const MyNetflixScreen(),
   ];
 
-  final Map<String, IconData> _icons = const {
-    'Home': Icons.home,
-    // 'Search': Icons.search,
-    'New & Hots': Icons.queue_play_next,
-    // 'Downloads': Icons.file_download,
-    'About': Icons.person,
-    'More': Icons.menu,
-  };
+  final List<Map<String, dynamic>> _navItems = [
+    {'label': 'Home', 'icon': Icons.home},
+    {
+      'label': 'New & Hots',
+      'icon': Icons.live_tv
+    }, // Replaced with a Material icon
+
+    {'label': 'Developers', 'icon': Icons.person},
+    {'label': 'My Netflix', 'icon': Icons.person},
+  ];
 
   int _currentIndex = 0;
 
@@ -41,14 +46,14 @@ class _NavScreenState extends State<NavScreen> {
           ? BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
               backgroundColor: Colors.black,
-              items: _icons
-                  .map((title, icon) => MapEntry(
-                      title,
-                      BottomNavigationBarItem(
-                        icon: Icon(icon, size: 30.0),
-                        label: title,
-                      )))
-                  .values
+              items: _navItems
+                  .map((navItem) => BottomNavigationBarItem(
+                        icon: navItem['label'] == 'My Netflix'
+                            ? const ProfileIcon(
+                                color: Colors.blue, iconSize: 30.0)
+                            : Icon(navItem['icon'], size: 30.0),
+                        label: navItem['label'],
+                      ))
                   .toList(),
               currentIndex: _currentIndex,
               selectedItemColor: Colors.white,
