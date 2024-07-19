@@ -38,4 +38,7 @@ class Assets {
 
   static const String violetEvergarden = '${_images}violet_evergarden.jpg';
   static const String witcher = '${_images}witcher.jpg';
+
+  static const String vathana = '${_images}vathana.jpg';
+  static const String cheangThornsopanha = '${_images}Cheang_Thornsopanha.jpg';
 }

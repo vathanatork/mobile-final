@@ -15,6 +15,7 @@ class _NavScreenState extends State<NavScreen> {
   final List<Widget> _screens = [
     HomeScreen(key: PageStorageKey('homeScreen')),
     NewAndHotScreen(),
+    DeveloperScreen(),
     Scaffold(),
   ];
 
@@ -23,6 +24,7 @@ class _NavScreenState extends State<NavScreen> {
     // 'Search': Icons.search,
     'New & Hots': Icons.queue_play_next,
     // 'Downloads': Icons.file_download,
+    'About': Icons.person,
     'More': Icons.menu,
   };
 
