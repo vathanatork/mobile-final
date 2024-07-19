@@ -5,15 +5,16 @@ class Content {
   final String name;
   final String imageUrl;
   final String titleImageUrl; 
-  final String videoUrl;      
+  final Uri videoUrl;      
   final String description;   
-  final Color color;          
+  final Color color; 
+         
 
   const Content({
-    required this.name,
-    required this.imageUrl,
+      required this.name,
+      required this.imageUrl,
       this.titleImageUrl = '',
-      this.videoUrl = '',
+      required this.videoUrl, // Accept null values,
       this.description = '',
       this.color = Colors.black,  // Or any other default color
   });
