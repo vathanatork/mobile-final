@@ -48,29 +48,34 @@ class _NewAndHotScreenState extends State<NewAndHotScreen>
 
   @override
   Widget build(BuildContext context) {
-    return MediaQuery.removePadding(
-      context: context,
-      removeTop: true, // Add this line to remove the top safe area padding
-      removeBottom:
-          true, // Add this line to remove the bottom safe area padding (optional)
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: CustomScrollView(
-          controller: _scrollController,
-          slivers: [
-            SliverPersistentHeader(
-              delegate: NewAndHotHeaderDelegate(tabController: _tabController),
-              pinned: true,
-            ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) => NewAndHotTile(
-                  movie: staticMovies[index],
-                ),
-                childCount: staticMovies.length,
+    return SafeArea(
+      // Wrap with SafeArea to prevent UI elements from being hidden by the notch or status bar
+      child: MediaQuery.removePadding(
+        context: context,
+        removeTop:
+            true, // Optionally keep or remove, depending on desired padding with SafeArea
+        removeBottom:
+            true, // Optionally keep or remove, depending on desired padding with SafeArea
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: CustomScrollView(
+            controller: _scrollController,
+            slivers: [
+              SliverPersistentHeader(
+                delegate:
+                    NewAndHotHeaderDelegate(tabController: _tabController),
+                pinned: true,
               ),
-            ),
-          ],
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) => NewAndHotTile(
+                    movie: staticMovies[index],
+                  ),
+                  childCount: staticMovies.length,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
