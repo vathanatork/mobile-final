@@ -74,12 +74,14 @@ final List<Content> previews =  [
   Content(
     name: 'Carole and Tuesday',
     imageUrl: Assets.caroleAndTuesday,
+    videoUrl: Assets.sintelVideoUrl,
     color: Colors.lightBlueAccent,
     titleImageUrl: Assets.caroleAndTuesdayTitle,
   ),
   Content(
     name: 'Black Mirror',
     imageUrl: Assets.blackMirror,
+    videoUrl: Assets.sintelVideoUrl,
     color: Colors.green,
     titleImageUrl: Assets.blackMirrorTitle,
   ),
