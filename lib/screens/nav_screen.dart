@@ -4,6 +4,8 @@ import 'package:flutter_netflix_responsive_ui/cubits/cubits.dart';
 import 'package:flutter_netflix_responsive_ui/screens/screens.dart';
 import 'package:flutter_netflix_responsive_ui/widgets/widgets.dart';
 
+import 'new_and_hot_screen.dart';
+
 class NavScreen extends StatefulWidget {
   @override
   _NavScreenState createState() => _NavScreenState();
@@ -11,9 +13,9 @@ class NavScreen extends StatefulWidget {
 
 class _NavScreenState extends State<NavScreen> {
   final List<Widget> _screens = [
-    const HomeScreen(key: PageStorageKey('homeScreen')),
-    const ItemScreen(key: PageStorageKey('itemScreen')),
-    const Scaffold(),
+    HomeScreen(key: PageStorageKey('homeScreen')),
+    NewAndHotScreen(),
+    Scaffold(),
   ];
 
   final Map<String, IconData> _icons = const {

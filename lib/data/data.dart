@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_netflix_responsive_ui/assets.dart';
 import 'package:flutter_netflix_responsive_ui/models/models.dart';
 
-final Content sintelContent =  Content(
+import '../models/movie.dart';
+
+final Content sintelContent = Content(
   name: 'Sintel',
   imageUrl: Assets.sintel,
   titleImageUrl: Assets.sintelTitle,
@@ -72,14 +74,12 @@ final List<Content> previews =  [
   Content(
     name: 'Carole and Tuesday',
     imageUrl: Assets.caroleAndTuesday,
-    videoUrl: Assets.sintelVideoUrl,
     color: Colors.lightBlueAccent,
     titleImageUrl: Assets.caroleAndTuesdayTitle,
   ),
   Content(
     name: 'Black Mirror',
     imageUrl: Assets.blackMirror,
-    videoUrl: Assets.sintelVideoUrl,
     color: Colors.green,
     titleImageUrl: Assets.blackMirrorTitle,
   ),
@@ -87,7 +87,7 @@ final List<Content> previews =  [
 
 final List<Content> myList =  [
   Content(
-    name: 'Violet Evergarden', 
+    name: 'Violet Evergarden',
     imageUrl: Assets.violetEvergarden,
     videoUrl: Assets.sintelVideoUrl,
   ),
@@ -126,4 +126,20 @@ final  List<Content> trending =  [
   Content(name: 'Tiger King', imageUrl: Assets.tigerKing,videoUrl: Assets.sintelVideoUrl,),
   Content(name: 'The Crown', imageUrl: Assets.crown,videoUrl: Assets.sintelVideoUrl,),
   Content(name: 'Dogs', imageUrl: Assets.dogs,videoUrl: Assets.sintelVideoUrl,),
+];
+
+List<Movie> staticMovies = [
+  Movie(
+    title: 'Movie 1',
+    imageUrl: 'https://via.placeholder.com/300x450',
+    releaseDate: '2024-01-01',
+    overview: 'This is the overview of Movie 1.',
+  ),
+  Movie(
+    title: 'Movie 2',
+    imageUrl: 'https://via.placeholder.com/300x450',
+    releaseDate: '2024-02-01',
+    overview: 'This is the overview of Movie 2.',
+  ),
+  // Add more movies as needed
 ];
